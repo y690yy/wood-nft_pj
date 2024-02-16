@@ -1,0 +1,26 @@
+<html>
+<head>
+  <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+</head>
+<body>
+  <a-scene embedded arjs="patternRatio:0.80" vr-mode-ui="enabled: false">
+    <a-marker
+      type="pattern"
+      url="https://your-github-username.github.io/your-repo-name/pattern-QR.patt"
+    >
+      <a-image
+        id="nft_sample"
+        width="1"
+        height="1"
+        position="0 0 0"
+        rotation="30 0 180"
+        src="https://your-github-username.github.io/your-repo-name/image.png"
+        animation="property: rotation; to: 30 0 540; loop: true; dur: 3000"
+      >
+      </a-image>
+    </a-marker>
+    <a-entity camera cursor="fuse: false; rayOrigin : mouse;"></a-entity>
+  </a-scene>
+</body>
+</html>
