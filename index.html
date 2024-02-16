@@ -1,13 +1,15 @@
+<!DOCTYPE html>
 <html>
 <head>
   <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
   <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+  <title>Simple AR.js Example with Custom Marker</title>
 </head>
 <body style="margin : 0px; overflow: hidden;">
     <a-scene embedded arjs='sourceType: webcam;'>
+        <!-- qr_codeサブディレクトリ内の独自のマーカーを使用 -->
         <a-marker type='pattern' url='qr_code/pattern-QR_01.patt'>
-            <!-- ここに3Dモデルまたは画像を追加 -->
-            
+            <!-- マーカー上に表示する3Dオブジェクト -->
             <a-box position="0 0.5 0" material="color: yellow;"></a-box>
         </a-marker>
         <a-entity camera></a-entity>
