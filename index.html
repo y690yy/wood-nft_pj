@@ -13,8 +13,8 @@
         },
         
         {
-          patt: "qr_code\QR_01_test.patt",
-          imageSrc: "ntf_figures\image.png",
+          patt: "qr_code/QR_01_test.patt",
+          imageSrc: "ntf_figures/image.png",
           link: "http://abehiroshi.la.coocan.jp/"
         }
       ];
@@ -23,17 +23,18 @@
         const scene = document.querySelector("a-scene");
         const aMarker = document.createElement("a-marker");
         aMarker.setAttribute("type", "pattern");
-        aMarker.setAttribute("url", marker.patt);
+        aMarker.setAttribute("url", marker.patt.replace(/\\/g, '/'));
         aMarker.setAttribute("id", `marker-${index}`);
 
         const aImage = document.createElement("a-image");
-        aImage.setAttribute("src", marker.imageSrc);
+        aImage.setAttribute("src", marker.imageSrc.replace(/\\/g, '/'));
         aImage.setAttribute("width", "1");
         aImage.setAttribute("height", "1");
         aImage.setAttribute("position", "0 0 0");
         aImage.setAttribute("rotation", "0 0 0");
 
         aImage.addEventListener("click", () => {
+          event.stopPropagation(); 
           window.location.href = marker.link;
         });
 
