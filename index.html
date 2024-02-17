@@ -6,11 +6,11 @@
   <title>Simple AR.js Example with Custom Marker</title>
 </head>
 <body style="margin : 0px; overflow: hidden;">
-    <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: true;'>
+    <a-scene embedded arjs='sourceType: webcam;'>
         <!-- qr_codeサブディレクトリ内の独自のマーカーを使用 -->
         <a-marker type='pattern' url='qr_code/pattern-QR_101115.patt'>
             <!-- マーカー上に表示する3Dオブジェクト -->
-            <a-image src="ntf_figures/image.png" position="0 0 0" rotation="90 180 0" scale="4 4 4"></a-image>
+            <a-box position="0 0.5 0" material="color: yellow;"></a-box>
         </a-marker>
         <a-entity camera></a-entity>
     </a-scene>
