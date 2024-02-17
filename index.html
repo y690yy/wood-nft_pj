@@ -33,8 +33,9 @@
         aImage.setAttribute("position", "0 0 0");
         aImage.setAttribute("rotation", "0 0 0");
 
-        aImage.addEventListener("click", () => {
-          event.stopPropagation();
+        // ここで `event` を引数として追加
+        aImage.addEventListener("click", (event) => {
+          event.stopPropagation(); // イベントの伝播を停止
           window.location.href = marker.link;
         });
 
@@ -50,4 +51,3 @@
   </a-scene>
 </body>
 </html>
-
