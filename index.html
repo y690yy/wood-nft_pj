@@ -5,6 +5,13 @@
   <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", () => {
+        document.querySelector("a-scene").addEventListener("click", function(event) {
+      // ここで、`<a-image>`からのイベントであればリンクに遷移する処理を書く
+      // しかし、基本的にはこのレベルでのクリックイベントは無視する
+    }, true); // trueでキャプチャフェーズでイベントを捕捉
+
+
+
       const markers = [
         {
           patt: "qr_code/yosimoto_qr.patt",
