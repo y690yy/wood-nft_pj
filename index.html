@@ -1,39 +1,52 @@
+<!DOCTYPE html>
 <html>
-  <head>
-    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
-    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
-    <script>
-      // DOMが読み込まれた後に実行される関数を定義
-      window.addEventListener("load", () => {
-        // 画像がクリックされたときのイベントリスナーを追加
-        document
-          .querySelector("#nft_sample")
-          .addEventListener("click", function () {
-            // 指定のURLに遷移
-            window.location.href = "http://abehiroshi.la.coocan.jp/";
-          });
+<head>
+  <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const markers = [
+        {
+          patt: "qr_code/yosimoto_qr.patt",
+          imageSrc: "ntf_figures/matya.png",
+          link: "https://profile.yoshimoto.co.jp/talent/detail?id=723"
+        },
+        
+        {
+          patt: "qr_code\QR_01_test.patt",
+          imageSrc: "ntf_figures\image.png",
+          link: "http://abehiroshi.la.coocan.jp/"
+        }
+      ];
+
+      markers.forEach((marker, index) => {
+        const scene = document.querySelector("a-scene");
+        const aMarker = document.createElement("a-marker");
+        aMarker.setAttribute("type", "pattern");
+        aMarker.setAttribute("url", marker.patt);
+        aMarker.setAttribute("id", `marker-${index}`);
+
+        const aImage = document.createElement("a-image");
+        aImage.setAttribute("src", marker.imageSrc);
+        aImage.setAttribute("width", "1");
+        aImage.setAttribute("height", "1");
+        aImage.setAttribute("position", "0 0 0");
+        aImage.setAttribute("rotation", "0 0 0");
+
+        aImage.addEventListener("click", () => {
+          window.location.href = marker.link;
+        });
+
+        aMarker.appendChild(aImage);
+        scene.appendChild(aMarker);
       });
-    </script>
-  </head>
-  <body>
-    <a-scene embedded arjs="patternRatio:0.80" vr-mode-ui="enabled: false">
-      <a-marker
-        type="pattern"
-        url="qr_code\yosimoto_qr.patt"
-      >
-        <a-image
-          id="nft_sample"
-          width="1"
-          height="1"
-          position="0 0 0"
-          rotation="30 0 180"
-          src="ntf_figures\matya.png"
-          
-        >
-        </a-image>
-      </a-marker>
-      <a-entity camera cursor="fuse: false; rayOrigin : mouse;"></a-entity>
-    </a-scene>
-  </body>
+    });
+  </script>
+</head>
+<body>
+  <a-scene embedded arjs="patternRatio:0.80" vr-mode-ui="enabled: false">
+    <a-entity camera cursor="fuse: false; rayOrigin : mouse;"></a-entity>
+  </a-scene>
+</body>
 </html>
 
