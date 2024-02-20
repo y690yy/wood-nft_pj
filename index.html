@@ -14,13 +14,13 @@
 
       const markers = [
         {
-          patt: "qr_code/arco_marker/aruco_01.patt",
-          imageSrc: "ntf_figures/figure_002.png",
+          patt: "qr_code/arco_marker/aruco_00.patt",
+          imageSrc: "ntf_figures/figure_000.png",
           link: "https://woodnft.github.io/woodnft-demo/#/CardDetailPage/1"
         },
         
         {
-          patt: "qr_code/arco_marker/aruco_02.patt",
+          patt: "qr_code/arco_marker/aruco_01.patt",
           imageSrc: "ntf_figures/figure_001.png",
           link: "https://woodnft.github.io/woodnft-demo/#/CardDetailPage/0"
         }
@@ -38,7 +38,7 @@
         aImage.setAttribute("width", "1");
         aImage.setAttribute("height", "1");
         aImage.setAttribute("position", "0 0 0");
-        aImage.setAttribute("rotation", "0 0 0");
+        aImage.setAttribute("rotation", "0 0 180");
 
         // ここで `event` を引数として追加
         aImage.addEventListener("click", (event) => {
