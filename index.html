@@ -27,7 +27,6 @@
               rotation: "0 0 0",
               link: "https://woodnft.github.io/woodnft-demo/#/CardDetailPage/2"
             }
-
           ]
         }
       ];
@@ -39,22 +38,39 @@
         aMarker.setAttribute("url", marker.patt);
         aMarker.setAttribute("id", `marker-${index}`);
 
-        marker.images.forEach(image => {
+        let currentImageIndex = 0;
+        const displayNextImage = () => {
+          // Remove any existing image before adding a new one
+          const existingImage = aMarker.querySelector("a-image");
+          if (existingImage) {
+            aMarker.removeChild(existingImage);
+          }
+
+          if (currentImageIndex >= marker.images.length) {
+            currentImageIndex = 0; // Reset index to loop
+          }
+
+          const image = marker.images[currentImageIndex];
           const aImage = document.createElement("a-image");
           aImage.setAttribute("src", image.src);
           aImage.setAttribute("width", "1");
           aImage.setAttribute("height", "1");
           aImage.setAttribute("position", image.position);
           aImage.setAttribute("rotation", image.rotation);
-          
 
-          // 画像クリックでそれぞれのリンクに遷移
           aImage.addEventListener("click", (event) => {
             event.stopPropagation();
             window.location.href = image.link;
           });
+
           aMarker.appendChild(aImage);
-        });
+
+          currentImageIndex++;
+          setTimeout(displayNextImage, 1000); // Display next image after 1 second
+        };
+
+        // Start the image display loop
+        displayNextImage();
 
         scene.appendChild(aMarker);
       });
