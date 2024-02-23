@@ -145,6 +145,17 @@
             window.location.href = image.link;
           });
 
+          // add animation
+          const animation = document.createElement("a-animation");
+          animation.setAttribute("attribute", "opacity");
+          animation.setAttribute("from", "1");
+          animation.setAttribute("to", "0");
+          animation.setAttribute("dur", "2000"); // 2秒間
+          animation.setAttribute("begin", imageIndex * 2000); // 上から順に2秒ずつ
+          animation.setAttribute("fill", "forwards"); // アニメーション終了後に最終状態を保持
+
+
+          aImage.appendChild(animation);
           aMarker.appendChild(aImage);
         });
 
