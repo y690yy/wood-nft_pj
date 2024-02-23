@@ -5,7 +5,7 @@ import cv2.aruco as aruco
 import os
 
 directory = 'aruco_generater/aruco_generated'  # select directory file
-num_markers = 16  # number of marker
+num_markers = 2  # number of marker
 
 def find_next_marker_id(directory, prefix='aruco_'):
     """指定ディレクトリ内で最も大きな連番IDを探し、次のIDを返す"""
