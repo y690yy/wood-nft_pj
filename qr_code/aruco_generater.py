@@ -32,7 +32,7 @@ def generate_aruco_markers(directory, num_markers, marker_size=200):
         marker_image = aruco.generateImageMarker(aruco_dict, i, marker_size)
         file_path = os.path.join(directory, f'aruco_{i}.png')
         cv2.imwrite(file_path, marker_image)
-        print(f'Marker ID {i} saved to {file_path}')
+        print(f'Marker ID {i}が{file_path}に保存されました')
 
 # 使用例
 directory = 'C:/Users/taise/OneDrive/ドキュメント/GitHub/wood-nft_pj/qr_code/arco_marker'  # 保存先ディレクトリのパスを指定
