@@ -5,41 +5,14 @@
   <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", () => {
+      const numbers = [1, 2, 3, 4, 5];
       const markers = [
         {
           patt: "aruco_generater/240223_aruco_generated_patt/aruco_0.patt",
-          images: [
-            {
-              src: "ntf_figures/figure_001.png",
-              position: "1 0 0",
-              rotation: "180 0 0",
-              link: "https://woodnft.github.io/woodnft-demo/#/CardDetailPage/1"
-            },
-            {
-              src: "ntf_figures/figure_002.png",
-              position: "1 0 0",
-              rotation: "180 0 0",
-              link: "https://woodnft.github.io/woodnft-demo/#/CardDetailPage/2"
-            },
-            {
-              src: "ntf_figures/figure_003.png",
-              position: "1 0 0",
-              rotation: "180 0 0",
-              link: "https://woodnft.github.io/woodnft-demo/#/CardDetailPage/3"
-            },
-            {
-              src: "ntf_figures/figure_004.png",
-              position: "1 0 0",
-              rotation: "180 0 0",
-              link: "https://woodnft.github.io/woodnft-demo/#/CardDetailPage/4"
-            },
-            {
-              src: "ntf_figures/figure_005.png",
-              position: "1 0 0",
-              rotation: "180 0 0",
-              link: "https://woodnft.github.io/woodnft-demo/#/CardDetailPage/5"
-            }
-          ]
+          images: numbers.map(num => ({
+            src: `ntf_figures/figure_${num}.png`,
+            link: `https://woodnft.github.io/woodnft-demo/#/CardDetailPage/${num}`
+          }))
         }
       ];
 
@@ -67,8 +40,8 @@
           aImage.setAttribute("src", image.src);
           aImage.setAttribute("width", "1");
           aImage.setAttribute("height", "1");
-          aImage.setAttribute("position", image.position);
-          aImage.setAttribute("rotation", image.rotation);
+          aImage.setAttribute("position", "1 0 0"); 
+          aImage.setAttribute("rotation", "180 0 0"); 
           aImage.setAttribute("scale","1.5 1.5 0");
 
           aImage.addEventListener("click", (event) => {
