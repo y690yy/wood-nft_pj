@@ -57,7 +57,7 @@
             aModel.setAttribute("gltf-model", "url(3d_model/chimera000.glb)"); // glTF形式に変更してマテリアルを含める
             aModel.setAttribute("position", "-1 0 0");
             aModel.setAttribute("rotation", "210 0 0");
-            aModel.setAttribute("scale","1.5 1.5 1.5");
+            aModel.setAttribute("scale","10 10 10");
             aMarker.appendChild(aModel);
           }
 
@@ -79,7 +79,7 @@
       <a-asset-item id="tree" src="3d_model/chimera000.glb"></a-asset-item>
     </a-assets>
 
-    <a-entity gltf-model="#tree" position="-1 0 0" scale="1.5 1.5 1.5"></a-entity> <!-- glTF形式に変更してマテリアルを含める -->
+    <a-entity gltf-model="#tree" position="-1 0 0" scale="10 10 10"></a-entity> <!-- glTF形式に変更してマテリアルを含める -->
     <a-entity camera cursor="fuse: false; rayOrigin: mouse;"></a-entity>
   </a-scene>
 </body>
