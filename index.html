@@ -75,8 +75,12 @@
 </head>
 <body>
   <a-scene embedded arjs="patternRatio:0.80" vr-mode-ui="enabled: false">
-    <a-entity gltf-model="url(3d_model/chimera1.gltf)" position="-1 0 0" scale="1.5 1.5 1.5"></a-entity> <!-- glTF形式に変更してマテリアルを含める -->
-    <a-entity camera cursor="fuse: false; rayOrigin : mouse;"></a-entity>
+    <a-assets>
+      <a-asset-item id="tree" src="3d_model/chimera1.gltf"></a-asset-item>
+    </a-assets>
+
+    <a-entity gltf-model="#tree" position="-1 0 0" scale="1.5 1.5 1.5"></a-entity> <!-- glTF形式に変更してマテリアルを含める -->
+    <a-entity camera cursor="fuse: false; rayOrigin: mouse;"></a-entity>
   </a-scene>
 </body>
 </html>
