@@ -138,7 +138,8 @@
       <a-asset-item id="tree" src="3d_model/chimera000.glb"></a-asset-item>
     </a-assets>
     
-    <a-entity gltf-model="#tree" position="1 0 0" scale="2 2 2"></a-entity> <!-- glTF形式に変更してマテリアルを含める -->
+    <!-- 以下のエンティティのpositionとrotationの属性は削除されました -->
+    <a-entity gltf-model="#tree"></a-entity> <!-- glTF形式に変更してマテリアルを含める -->
     
     <a-entity camera cursor="fuse: false; rayOrigin: mouse;"></a-entity>
   </a-scene>
