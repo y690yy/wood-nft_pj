@@ -69,18 +69,14 @@
           }))
         },
         {
-        patt: "aruco_generater/240223_aruco_generated_patt/aruco_0.patt",
-        
-        sphere: {
-          color: "red",
-          radius: "1.25",
-          position: "0 0.5 0"
+          patt: "aruco_generater/240223_aruco_generated_patt/aruco_0.patt",
+          images: [],
+          sphere: {
+            color: "red",
+            radius: "1.25",
+            position: "0 0.5 0"
+          }
         }
-
-      }
-
-
-        
       ];
 
       markers.forEach((marker, index) => {
@@ -118,18 +114,6 @@
 
           aMarker.appendChild(aImage);
 
-          // 3Dモデルの追加
-          /*
-          if(marker.patt === "aruco_generater/240223_aruco_generated_patt/aruco_0.patt") {
-            const aModel = document.createElement("a-entity");
-            aModel.setAttribute("gltf-model", "url(3d_model/2024_3_1.glb)"); 
-            aModel.setAttribute("position", "1 0 0");
-            aModel.setAttribute("rotation", "210 0 0");
-            //aModel.setAttribute("scale","2 2 2");
-            aMarker.appendChild(aModel);
-          }
-          */
-
           currentImageIndex++;
           setTimeout(displayNextImage, 1000); // Display next image after 1 second
         };
@@ -143,14 +127,7 @@
   </script>
 </head>
 <body>
-  <a-scene embedded arjs="patternRatio:0.80" vr-mode-ui="enabled: false">
-    
-    <a-assets>
-      <a-asset-item id="tree" src="3d_model/2024_3_1.glb"></a-asset-item>
-    </a-assets>
-    
-    <a-entity gltf-model="#tree"></a-entity>
-    
+  <a-scene embedded arjs="patternRatio:0.80" vr-mode-ui="enabled: false">   
     <a-entity camera cursor="fuse: false; rayOrigin: mouse;"></a-entity>
   </a-scene>
 </body>
