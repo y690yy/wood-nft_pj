@@ -111,10 +111,10 @@
           
           if(marker.patt === "aruco_generater/240223_aruco_generated_patt/aruco_0.patt") {
             const aModel = document.createElement("a-entity");
-            aModel.setAttribute("gltf-model", "url(3d_model/chimera_00.gltf)"); // glTF形式に変更してマテリアルを含める
+            aModel.setAttribute("gltf-model", "url(3d_model/chimera000.glb)"); // glTF形式に変更してマテリアルを含める
             aModel.setAttribute("position", "1 0 0");
             aModel.setAttribute("rotation", "210 0 0");
-            aModel.setAttribute("scale","0 0 0");
+            aModel.setAttribute("scale","2 2 2");
             aMarker.appendChild(aModel);
           }
           
@@ -135,10 +135,10 @@
   <a-scene embedded arjs="patternRatio:0.80" vr-mode-ui="enabled: false">
     
     <a-assets>
-      <a-asset-item id="tree" src="3d_model/chimera_00.gltf"></a-asset-item>
+      <a-asset-item id="tree" src="3d_model/chimera000.glb"></a-asset-item>
     </a-assets>
     
-    <a-entity gltf-model="#tree" position="1 0 0" scale="0 0 0"></a-entity> <!-- glTF形式に変更してマテリアルを含める -->
+    <a-entity gltf-model="#tree" position="1 0 0" scale="2 2 2"></a-entity> <!-- glTF形式に変更してマテリアルを含める -->
     
     <a-entity camera cursor="fuse: false; rayOrigin: mouse;"></a-entity>
   </a-scene>
