@@ -86,9 +86,17 @@
             aMarker.removeChild(existingImage);
           }
 
+          // Remove any existing sphere before adding a new one
+          const existingSphere = aMarker.querySelector("a-sphere");
+          if (existingSphere) {
+            aMarker.removeChild(existingSphere);
+          }
+
           if (currentImageIndex >= marker.images.length) {
             currentImageIndex = 0; // Reset index to loop
           }
+
+
 
           const image = marker.images[currentImageIndex];
           const aImage = document.createElement("a-image");
@@ -105,6 +113,13 @@
           });
 
           aMarker.appendChild(aImage);
+
+          // Add a red sphere
+          const aSphere = document.createElement("a-sphere");
+          aSphere.setAttribute("color", "red");
+          aSphere.setAttribute("radius", "0.5");
+          aSphere.setAttribute("position", "-1 0 0");
+          aMarker.appendChild(aSphere);
 
           currentImageIndex++;
           setTimeout(displayNextImage, 1000); // Display next image after 1 second
