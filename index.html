@@ -136,7 +136,7 @@
           const aText = document.createElement("a-text");
           aText.setAttribute("value", "NFT_ID " + image.src.split('/').pop().split('.')[0] + " info"); // Extracting the number from the image src
           aText.setAttribute("color", "white");
-          aText.setAttribute("position", "-0.1 -0.5 0"); // Adjust position to be below the sphere
+          aText.setAttribute("position", "-0.1 -0.5 0.5"); // Adjust position to be below the sphere
           aText.setAttribute("align", "center");
 
           aMarker.appendChild(aText);
@@ -159,5 +159,6 @@
   <a-scene embedded arjs="patternRatio:0.80" vr-mode-ui="enabled: false">   
     <a-entity camera cursor="fuse: false; rayOrigin: mouse;"></a-entity>
   </a-scene>
-</body>
+</body>  
 </html>
+
