@@ -92,6 +92,12 @@
             aMarker.removeChild(existingSphere);
           }
 
+          const existingText = aMarker.querySelector("a-text");
+          if (existingText) {
+            aMarker.removeChild(existingText);
+          }
+
+
           if (currentImageIndex >= marker.images.length) {
             currentImageIndex = 0; // Reset index to loop
           }
@@ -124,7 +130,17 @@
             event.stopPropagation();
             window.location.href = image.link; // Use the same link as the current image
           });
-          aMarker.appendChild(aSphere);                                                                                                
+          aMarker.appendChild(aSphere);
+
+          // Add text below the sphere
+          const aText = document.createElement("a-text");
+          aText.setAttribute("value", image.src.split('/').pop().split('.')[0]); // Extracting the number from the image src
+          aText.setAttribute("color", "white");
+          aText.setAttribute("position", "-0.1 -0.5 0"); // Adjust position to be below the sphere
+          aText.setAttribute("align", "center");
+          aMarker.appendChild(aText);
+          
+          
 
           currentImageIndex++;
           setTimeout(displayNextImage, 1000); // Display next image after 1 second
