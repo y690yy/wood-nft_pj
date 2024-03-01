@@ -134,7 +134,7 @@
 
           // Add text below the sphere
           const aText = document.createElement("a-text");
-          aText.setAttribute("value", image.src.split('/').pop().split('.')[0]); // Extracting the number from the image src
+          aText.setAttribute("value", "info" + image.src.split('/').pop().split('.')[0]); // Extracting the number from the image src
           aText.setAttribute("color", "white");
           aText.setAttribute("position", "-0.1 -0.3 0"); // Adjust position to be below the sphere
           aText.setAttribute("align", "center");
