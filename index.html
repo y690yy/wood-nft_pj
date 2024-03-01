@@ -120,24 +120,27 @@
 
           aMarker.appendChild(aImage);
 
-          // Add a red sphere
-          const aSphere = document.createElement("a-sphere");
-          aSphere.setAttribute("color", "red");
-          aSphere.setAttribute("radius", "0.3");
-          aSphere.setAttribute("position", "-0.1 0 0");
+          // 赤いcircleを追加
+          const aCircle = document.createElement("a-circle");
+          aCircle.setAttribute("color", "red"); // 内部を赤で塗りつぶし
+          aCircle.setAttribute("radius", "0.3");
+          aCircle.setAttribute("position", "-0.1 0 0");
+          aCircle.setAttribute("stroke-color", "black"); // 枠線を黒に設定
+          aCircle.setAttribute("stroke-width", "0.05"); // 枠線の幅を設定
 
-          aSphere.addEventListener("click", (event) => {
+          aCircle.addEventListener("click", (event) => {
             event.stopPropagation();
-            window.location.href = image.link; // Use the same link as the current image
+            window.location.href = image.link; // 現在の画像と同じリンクを使用
           });
-          aMarker.appendChild(aSphere);
+          aMarker.appendChild(aCircle);
 
           // Add text below the sphere
           const aText = document.createElement("a-text");
-          aText.setAttribute("value", "NFT_ID " + image.src.split('/').pop().split('.')[0] + " info"); // Extracting the number from the image src
+          aText.setAttribute("value", "NFT_ID " + image.src.split('/').pop().split('.')[0] + " info"); 
           aText.setAttribute("color", "white");
-          aText.setAttribute("position", "0 0 0.5"); // Adjust position to be below the sphere
+          aText.setAttribute("position", "0 0 0.5");
           aText.setAttribute("align", "center");
+          aText.setAttribute("scale", "0.7 0.7 0.7");
 
           aMarker.appendChild(aText);
           
