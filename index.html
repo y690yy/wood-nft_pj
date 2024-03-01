@@ -5,21 +5,71 @@
   <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      const numbers = [
-       1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
-       11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
-       21, 22, 23, 24, 25, 26, 27, 28, 29, 30,
-       31, 32, 33, 34, 35, 36, 37, 38, 39, 40,
-       41, 42, 43, 44, 45, 46, 47, 48, 49, 50,
-       51, 52, 53, 54, 55, 56, 57, 58, 59, 60];
+      const numbers_0 = [
+      332, 411, 262, 412, 263, 264, 413, 333, 334, 414,
+      265, 266, 415, 267, 335, 268, 336, 269, 416, 270,
+      417, 337, 418, 419, 420, 271, 272, 273, 338, 421,
+      422, 274, 423, 339, 340, 275, 341, 424, 425, 342,
+      343, 276, 277, 426, 278, 427, 344, 345, 279, 346,
+      428, 280, 429, 347, 348, 281, 430, 349, 350, 431,
+      282, 351, 352, 353, 354, 432,];
+
+      const numbers_1 = [
+      432, 283, 433, 355, 284, 356, 357, 434, 285, 358,
+      286, 435, 287, 288, 289, 359, 290, 436, 360, 437,
+      438, 291, 292, 439, 440, 293, 441, 294, 295, 296,
+      442, 443, 297, 298, 299, 361, 444, 445, 300, 446,
+      362, 447, 363, 301, 448, 449, 450, 364, 451, 452,
+      365, 302];
+
+      const numbers_2 = [
+      366, 453, 454, 455, 456, 303, 367, 304, 368, 305,
+      457, 306, 369, 370, 458, 459, 307, 371, 460, 308,
+      309, 372, 373, 310, 461, 462, 463, 464, 465, 311,
+      374, 375, 376, 466, 467, 312, 377, 378, 313, 379,
+      314, 315, 468, 380, 381, 316, 382, 469, 383, 317,
+      318, 319, 320, 384, 470, 321, 471, 385];
+
+      const numbers_3 = [
+      386, 387, 472, 388, 473, 474, 389, 475, 390, 476,
+      391, 322, 323, 392, 477, 393, 478, 394, 479, 480,
+      481, 482, 395, 483, 484, 396, 485, 324, 486, 397,
+      398, 399, 325, 400, 326, 487, 327, 401, 402, 488,
+      489, 403, 404, 328, 329, 405, 406, 407, 330, 490,
+      408, 491, 409, 331, 492, 493, 410, 494];
+
+
       const markers = [
         {
           patt: "aruco_generater/240223_aruco_generated_patt/aruco_0.patt",
-          images: numbers.map(num => ({
+          images: numbers_0.map(num => ({
             src: `ntf_figures/${num}.png`,
             link: `https://woodnft.github.io/woodnft-demo/#/CardDetailPage/${num}`
           }))
-        }
+        },
+        {
+          patt: "aruco_generater/240223_aruco_generated_patt/aruco_1.patt",
+          images: numbers_1.map(num => ({
+            src: `ntf_figures/${num}.png`,
+            link: `https://woodnft.github.io/woodnft-demo/#/CardDetailPage/${num}`
+          }))
+        },
+        {
+          patt: "aruco_generater/240223_aruco_generated_patt/aruco_2.patt",
+          images: numbers_2.map(num => ({
+            src: `ntf_figures/${num}.png`,
+            link: `https://woodnft.github.io/woodnft-demo/#/CardDetailPage/${num}`
+          }))
+        },
+        {
+          patt: "aruco_generater/240223_aruco_generated_patt/aruco_3.patt",
+          images: numbers_3.map(num => ({
+            src: `ntf_figures/${num}.png`,
+            link: `https://woodnft.github.io/woodnft-demo/#/CardDetailPage/${num}`
+          }))
+        },
+
+        
       ];
 
       markers.forEach((marker, index) => {
