@@ -5,15 +5,70 @@
   <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      const numbers = [1, 2, 3, 4, 5];
+      const numbers_0 = [
+      332, 411, 262, 412, 263, 264, 413, 333, 334, 414,
+      265, 266, 415, 267, 335, 268, 336, 269, 416, 270,
+      417, 337, 418, 419, 420, 271, 272, 273, 338, 421,
+      422, 274, 423, 339, 340, 275, 341, 424, 425, 342,
+      343, 276, 277, 426, 278, 427, 344, 345, 279, 346,
+      428, 280, 429, 347, 348, 281, 430, 349, 350, 431,
+      282, 351, 352, 353, 354, 432,];
+
+      const numbers_1 = [
+      432, 283, 433, 355, 284, 356, 357, 434, 285, 358,
+      286, 435, 287, 288, 289, 359, 290, 436, 360, 437,
+      438, 291, 292, 439, 440, 293, 441, 294, 295, 296,
+      442, 443, 297, 298, 299, 361, 444, 445, 300, 446,
+      362, 447, 363, 301, 448, 449, 450, 364, 451, 452,
+      365, 302];
+
+      const numbers_2 = [
+      366, 453, 454, 455, 456, 303, 367, 304, 368, 305,
+      457, 306, 369, 370, 458, 459, 307, 371, 460, 308,
+      309, 372, 373, 310, 461, 462, 463, 464, 465, 311,
+      374, 375, 376, 466, 467, 312, 377, 378, 313, 379,
+      314, 315, 468, 380, 381, 316, 382, 469, 383, 317,
+      318, 319, 320, 384, 470, 321, 471, 385];
+
+      const numbers_3 = [
+      386, 387, 472, 388, 473, 474, 389, 475, 390, 476,
+      391, 322, 323, 392, 477, 393, 478, 394, 479, 480,
+      481, 482, 395, 483, 484, 396, 485, 324, 486, 397,
+      398, 399, 325, 400, 326, 487, 327, 401, 402, 488,
+      489, 403, 404, 328, 329, 405, 406, 407, 330, 490,
+      408, 491, 409, 331, 492, 493, 410, 494];
+
+
       const markers = [
         {
           patt: "aruco_generater/240223_aruco_generated_patt/aruco_0.patt",
-          images: numbers.map(num => ({
-            src: `ntf_figures/figure_${num}.png`,
+          images: numbers_0.map(num => ({
+            src: `ntf_figures/${num}.png`,
             link: `https://woodnft.github.io/woodnft-demo/#/CardDetailPage/${num}`
           }))
-        }
+        },
+        {
+          patt: "aruco_generater/240223_aruco_generated_patt/aruco_1.patt",
+          images: numbers_1.map(num => ({
+            src: `ntf_figures/${num}.png`,
+            link: `https://woodnft.github.io/woodnft-demo/#/CardDetailPage/${num}`
+          }))
+        },
+        {
+          patt: "aruco_generater/240223_aruco_generated_patt/aruco_2.patt",
+          images: numbers_2.map(num => ({
+            src: `ntf_figures/${num}.png`,
+            link: `https://woodnft.github.io/woodnft-demo/#/CardDetailPage/${num}`
+          }))
+        },
+        {
+          patt: "aruco_generater/240223_aruco_generated_patt/aruco_3.patt",
+          images: numbers_3.map(num => ({
+            src: `ntf_figures/${num}.png`,
+            link: `https://woodnft.github.io/woodnft-demo/#/CardDetailPage/${num}`
+          }))
+        },
+        
       ];
 
       markers.forEach((marker, index) => {
@@ -31,17 +86,31 @@
             aMarker.removeChild(existingImage);
           }
 
+          // Remove any existing sphere before adding a new one
+          const existingSphere = aMarker.querySelector("a-sphere");
+          if (existingSphere) {
+            aMarker.removeChild(existingSphere);
+          }
+
+          const existingText = aMarker.querySelector("a-text");
+          if (existingText) {
+            aMarker.removeChild(existingText);
+          }
+
+
           if (currentImageIndex >= marker.images.length) {
             currentImageIndex = 0; // Reset index to loop
           }
+
+
 
           const image = marker.images[currentImageIndex];
           const aImage = document.createElement("a-image");
           aImage.setAttribute("src", image.src);
           aImage.setAttribute("width", "1");
           aImage.setAttribute("height", "1");
-          aImage.setAttribute("position", "1 0 0"); 
-          aImage.setAttribute("rotation", "180 0 0"); 
+          aImage.setAttribute("position", "1 3 0"); 
+          aImage.setAttribute("rotation", "0 0 0"); 
           aImage.setAttribute("scale","1.5 1.5 0");
 
           aImage.addEventListener("click", (event) => {
@@ -50,6 +119,33 @@
           });
 
           aMarker.appendChild(aImage);
+
+          // 赤いcircleを追加
+          const aCircle = document.createElement("a-circle");
+          aCircle.setAttribute("color", "cyan"); // 内部をシアンで塗りつぶし
+          aCircle.setAttribute("opacity", "0.6"); // 透明度を60%に設定
+          aCircle.setAttribute("radius", "0.25");
+          aCircle.setAttribute("position", "0.5 2.1 0.1");
+          aCircle.setAttribute("stroke-color", "black"); // 枠線を黒に設定
+          aCircle.setAttribute("stroke-width", "0.1"); // 枠線の幅を設定
+
+          aCircle.addEventListener("click", (event) => {
+            event.stopPropagation();
+            window.location.href = image.link; // 現在の画像と同じリンクを使用
+          });
+          aMarker.appendChild(aCircle);
+
+          // Add text below the sphere
+          const aText = document.createElement("a-text");
+          aText.setAttribute("value", "NFT_ID " + image.src.split('/').pop().split('.')[0] + "\nTAP HERE"); 
+          aText.setAttribute("color", "white");
+          aText.setAttribute("position", "0.4 2.4 1"); 
+          aText.setAttribute("align", "center");
+          aText.setAttribute("scale", "0.6 0.6 0.6");
+
+          aMarker.appendChild(aText);
+          
+          
 
           currentImageIndex++;
           setTimeout(displayNextImage, 1000); // Display next image after 1 second
@@ -64,8 +160,9 @@
   </script>
 </head>
 <body>
-  <a-scene embedded arjs="patternRatio:0.80" vr-mode-ui="enabled: false">
-    <a-entity camera cursor="fuse: false; rayOrigin : mouse;"></a-entity>
+  <a-scene embedded arjs="patternRatio:0.80" vr-mode-ui="enabled: false">   
+    <a-entity camera cursor="fuse: false; rayOrigin: mouse;"></a-entity>
   </a-scene>
-</body>
+</body>  
 </html>
+
