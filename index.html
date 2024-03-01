@@ -117,9 +117,14 @@
           // Add a red sphere
           const aSphere = document.createElement("a-sphere");
           aSphere.setAttribute("color", "red");
-          aSphere.setAttribute("radius", "0.5");
+          aSphere.setAttribute("radius", "0.3");
           aSphere.setAttribute("position", "0 0 0");
-          aMarker.appendChild(aSphere);
+
+          aSphere.addEventListener("click", (event) => {
+            event.stopPropagation();
+            window.location.href = image.link; // Use the same link as the current image
+          });
+          aMarker.appendChild(aSphere);                                                                                                
 
           currentImageIndex++;
           setTimeout(displayNextImage, 1000); // Display next image after 1 second
