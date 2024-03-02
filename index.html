@@ -120,30 +120,55 @@
 
           aMarker.appendChild(aImage);
 
-          // 赤いcircleを追加
-          const aCircle = document.createElement("a-circle");
-          aCircle.setAttribute("color", "cyan"); // 内部をシアンで塗りつぶし
-          aCircle.setAttribute("opacity", "0.6"); // 透明度を60%に設定
-          aCircle.setAttribute("radius", "0.25");
-          aCircle.setAttribute("position", "0.4 2.0 0.1");
-          aCircle.setAttribute("stroke-color", "black"); // 枠線を黒に設定
-          aCircle.setAttribute("stroke-width", "0.1"); // 枠線の幅を設定
+          
+          const aCircleCyan = document.createElement("a-circle");
+          aCircleCyan.setAttribute("color", "cyan");
+          aCircleCyan.setAttribute("opacity", "0.6"); 
+          aCircleCyan.setAttribute("radius", "0.25");
+          aCircleCyan.setAttribute("position", "0.4 2.0 0.1");
+          aCircleCyan.setAttribute("stroke-color", "black"); 
+          aCircleCyan.setAttribute("stroke-width", "0.3"); 
 
-          aCircle.addEventListener("click", (event) => {
+          aCircleCyan.addEventListener("click", (event) => {
             event.stopPropagation();
             window.location.href = image.link; // 現在の画像と同じリンクを使用
           });
-          aMarker.appendChild(aCircle);
+          aMarker.appendChild(aCircleCyan);
+
+          const aCircleBlack = document.createElement("a-circle");
+          aCircleBlack.setAttribute("color", "black");
+          aCircleBlack.setAttribute("opacity", "0.6"); 
+          aCircleBlack.setAttribute("radius", "0.25");
+          aCircleBlack.setAttribute("position", "0.6 2.0 0.08");
+          //aCircleBlack.setAttribute("stroke-color", "white"); 
+          aCircleBlack.setAttribute("stroke-width", "0.3"); 
+
+          aCircleBlack.addEventListener("click", (event) => {
+            event.stopPropagation();
+            window.location.href = image.link; // 現在の画像と同じリンクを使用
+          });
+          aMarker.appendChild(aCircleBlack);
 
           // Add text below the sphere
-          const aText = document.createElement("a-text");
-          aText.setAttribute("value", "NFT_ID " + image.src.split('/').pop().split('.')[0] + "\nTAP HERE"); 
-          aText.setAttribute("color", "white");
-          aText.setAttribute("position", "0.3 2.3 1"); 
-          aText.setAttribute("align", "center");
-          aText.setAttribute("scale", "0.6 0.6 0.6");
+          const aTextTap = document.createElement("a-text");
+          aTextTap.setAttribute("value", "NFT_ID " + "TAP"); 
+          aTextTap.setAttribute("color", "white");
+          aTextTap.setAttribute("position", "0.3 2.3 1"); 
+          aTextTap.setAttribute("align", "center");
+          aTextTap.setAttribute("scale", "0.6 0.6 0.6");
 
-          aMarker.appendChild(aText);
+          aMarker.appendChild(aTextTap);
+
+          const aTextID = document.createElement("a-text");
+          aTextID.setAttribute("value", "NFT_ID " + image.src.split('/').pop().split('.')[0]); 
+          aTextID.setAttribute("color", "white");
+          aTextID.setAttribute("position", "0.3 2.3 1"); 
+          aTextID.setAttribute("align", "center");
+          aTextID.setAttribute("scale", "0.6 0.6 0.6");
+
+          aMarker.appendChild(aTextTap);
+
+
           
           
 
