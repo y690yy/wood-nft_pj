@@ -138,10 +138,10 @@
           const aCircleBlack = document.createElement("a-circle");
           aCircleBlack.setAttribute("color", "black");
           aCircleBlack.setAttribute("opacity", "0.6"); 
-          aCircleBlack.setAttribute("radius", "0.25");
-          aCircleBlack.setAttribute("position", "0.6 2.0 0.08");
+          aCircleBlack.setAttribute("radius", "0.0.28");
+          aCircleBlack.setAttribute("position", "0.4 2.0 0.08");
           //aCircleBlack.setAttribute("stroke-color", "white"); 
-          aCircleBlack.setAttribute("stroke-width", "0.3"); 
+          //aCircleBlack.setAttribute("stroke-width", "0.3"); 
 
           aCircleBlack.addEventListener("click", (event) => {
             event.stopPropagation();
@@ -151,7 +151,7 @@
 
           // Add text below the sphere
           const aTextTap = document.createElement("a-text");
-          aTextTap.setAttribute("value", "NFT_ID " + "TAP"); 
+          aTextTap.setAttribute("value", "TAP"); 
           aTextTap.setAttribute("color", "white");
           aTextTap.setAttribute("position", "0.3 2.3 1"); 
           aTextTap.setAttribute("align", "center");
@@ -162,9 +162,9 @@
           const aTextID = document.createElement("a-text");
           aTextID.setAttribute("value", "NFT_ID " + image.src.split('/').pop().split('.')[0]); 
           aTextID.setAttribute("color", "white");
-          aTextID.setAttribute("position", "0.3 2.3 1"); 
+          aTextID.setAttribute("position", "0 0 0"); 
           aTextID.setAttribute("align", "center");
-          aTextID.setAttribute("scale", "0.6 0.6 0.6");
+          aTextID.setAttribute("scale", "1 1 1");
 
           aMarker.appendChild(aTextTap);
 
